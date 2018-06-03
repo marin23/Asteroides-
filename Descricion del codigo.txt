@@ -1,0 +1,127 @@
+								**Descripción del Código**
+
+
+1.-Instrucción: PImage
+
+Código usado: PImage[] asteroidPics = new PImage[3];
+Funcionamiento: Tipo de datos para almacenar imágenes. El procesamiento puede mostrar .gif, .jpg, .tga, y.png imágenes. Las imágenes pueden mostrarse en espacios 2D y 3D.
+Funcionamiento en el programa: Almacena las imágenes de Asteroides.
+
+
+2.- Instrucción: ArrayList
+
+Código usado: ArrayList<Exhaust> exhaust;
+ArrayList<Exhaust> fire;
+ArrayList<Bullet> bullets;
+ArrayList<Asteroid> asteroids;
+Funcionamiento: Un ArrayList almacena una cantidad variable de objetos. Esto es similar a crear una matriz de objetos, pero con ArrayList, los elementos pueden agregarse 
+y eliminarse fácilmente de ArrayList y su tamaño se cambia dinámicamente. Funcionamiento en el programa: Se generan Arrays de los objetos que se ocuparan, como el fuego , las balas y los asteroides. Cada uno contendrá un conjunto de objetos de esa misma clase
+
+
+3.- Instrucción: loadImage
+
+Código usado: asteroidPics[0] = loadImage("Asteroide-1.jpg");
+ asteroidPics[1] = loadImage("Asteroide-2.jpg");
+ asteroidPics[2] = loadImage("Asteroide-3.jpg");
+ naves = loadImage("nave.jpg");
+Funcionamiento: Cargue una imagen en una variable de tipo Imagen. Puede cargar cuatro tipos de imágenes (.gif, .jpg, .tga, .png). Para cargar correctamente, las imágenes deben estar ubicadas en el directorio de datos del boceto actual.
+Funcionamiento en el programa: Carga las imágenes que se utilizaran en la animación como los 3 asteroides y la nave.
+
+
+4.- Instruction: heading2D()
+
+Código usado: float theta = heading2D(ship.rotation)+PI/2;
+Funcionamiento: Calcula el ángulo de rotación para un vector (solo vectores 2D).
+Funcionamiento en el programa: Hace la rotación que tendrá la nave dentro del lienzo.
+
+5.- Instruction: update()
+
+Código usado: ship.update(exhaust, fire);
+Funcionamiento: Sobrescribe la llamada que se está utilizando, si el usuario no crea una actualización ahí , no es necesario utilizarlo.
+Funcionamiento en el programa: 
+
+6.- Instrucción: rotate()
+
+Código usado: if(aPressed){
+     rotate2D(ship.rotation,-rotationAngle);
+                                                }
+Funcionamiento: Gira la cantidad especificada por el parámetro de ángulo. Los ángulos se deben especificar en radianes (valores de 0 a TWO_PI), o se pueden convertir de grados a radianes con la función radianes ().
+Funcionamiento en el programa: Se condiciona el angulo de giro si se preciona la flecha de abajo o de arriba 
+
+7.- Instruction: for()
+
+Código usado: for(int i = 0; i < lives; i++){ }
+ else if(lives < 0){}
+   if(darkCounter < darkCounterLimit){
+    background(0);
+    darkCounter++;
+Funcionamiento:  Controla una secuencia de repeticiones. Una estructura básica tiene tres partes: init, test y update. Cada parte debe estar separada por un punto y coma
+Funcionamiento en el programa: Muestra las vidas que se tiene y en el momento de que se agoten el juego termina.
+
+
+8.- Instrucción: (Conjunto de instrucciones)
+
+Código usado: image(naves,width/2 - 5 * ship.r,height/2-7.5*ship.r,10*ship.r,15*ship.r);
+     textFont(font, 33);
+     fill(0, 200);
+     text("GAME OVER", width/2-80-2, height*.75-1);
+     textFont(font, 32);
+     fill(255);
+     text("GAME OVER", width/2-80, height*.75);
+     textFont(font, 16);
+     fill(0, 200);
+     text("QUIERES INTENTAR DE NUEVO? DALE CLICK", width/2-80-2, height*.9-1);
+     textFont(font, 15);
+     fill(255);
+
+Funcionamiento en el programa: Conjunto de indicaciones donde se posiciona un ensaje cuando pierdes las 3 vidas en el juego, con una leyenda de “Game Over”  y “QUIERES INTENTAR DE NUEVO? DALE CLICK”
+
+
+9.-Instruction: keyPressed()
+
+Código usado:  void keyPressed(){
+  if(key==CODED){
+   if(keyCode==UP){
+      upPressed=true;
+   } else if(keyCode==DOWN){
+      downPressed=true;
+   } else if(keyCode == LEFT){
+    aPressed = true;
+   }else  if(keyCode==RIGHT){
+    dPressed = true;
+if(key == 'a'){
+   
+
+ aPressed = true;
+  }
+Funcionamiento:  La función keyPressed () se invoca una vez cada vez que se presiona una tecla. La tecla presionada se almacena en la variable clave.
+Funcionamiento en el programa: Se programan los botones que se utilizaran para disparar, y mover la nave.
+
+
+10- Instrucción: (Conjunto de instrucciones)
+
+Código usado: class Bullet{
+ PVector position;
+ PVector velocity;
+ int radius = 5;
+ int counter = 0;
+ int timeOut = 24 * 2;
+ float alpha;
+ PImage img = loadImage("laser.png"); 
+Funcionamiento en el programa: Se genera la clase bala en donde se condiciona una velocidad y posición dependiendo la nave, al igual que su tamaño. Se carta también la imagen de cómo será la bala o laser.
+11.- Instrucción: (Conjunto de instrucciones)
+Código usado: void edges(){
+  if (position.x < 0){
+      position.x = width;
+    }
+    if (position.y < 0) {
+      position.y = height;
+    }
+    if (position.x > width) {
+      position.x = 0;
+    }
+    if (position.y > height){
+      position.y = 0;
+    }
+ }
+Funcionamiento en el programa: Se establece el posicionamiento de la bala, así como su ancho y largo 
